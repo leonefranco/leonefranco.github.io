@@ -1,152 +1,233 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Franco Leone | Cloud Architect & Engineer</title>
-    <style>
-        /* RESET & BASE STYLES */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leone Franco | Portfolio</title>
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset & Base Layout */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            color: #444444; /* Gris oscuro idéntico al de tu firma */
-            line-height: 1.6;
-            padding: 40px 20px;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      padding: 4rem 2rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
 
-        .container {
-            max-width: 650px;
-            margin: 0 auto;
-        }
+    /* Typography Hierarchy */
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: #111111;
+      margin-bottom: 0.5rem;
+    }
 
-        /* HEADER SECTION */
-        header {
-            margin-bottom: 40px;
-        }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #111111;
+      margin-top: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
 
-        h1 {
-            font-size: 28px;
-            color: #444444;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
+    p {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #666666;
+    }
 
-        .subtitle {
-            font-size: 16px;
-            color: #666666; /* Gris medio */
-            margin-bottom: 15px;
-        }
+    /* Layout Components */
+    header {
+      margin-bottom: 3.5rem;
+    }
 
-        /* LINKS & NETWORKS */
-        .links {
-            font-size: 14px;
-        }
+    .subtitle {
+      font-size: 1rem;
+      color: #888888;
+      font-weight: 400;
+    }
 
-        .links a {
-            color: #666666;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
+    /* Project List */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
 
-        .links a:hover {
-            color: #444444;
-            text-decoration: underline;
-        }
+    .project-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #f0f0f0;
+      text-decoration: none;
+      group: hover;
+    }
 
-        .divider {
-            color: #666666;
-            margin: 0 8px;
-        }
+    .project-info {
+      max-width: 85%;
+    }
 
-        hr {
-            border: 0;
-            border-top: 1px solid #eeeeee;
-            margin: 40px 0;
-        }
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #111111;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
 
-        /* SECTIONS */
-        section {
-            margin-bottom: 30px;
-        }
+    .project-desc {
+      font-size: 0.9rem;
+      color: #666666;
+      margin-top: 0.25rem;
+    }
 
-        h2 {
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #444444;
-            margin-bottom: 15px;
-        }
+    /* Icon Utility Alignment */
+    .icon-inline {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2px;
+      color: #999999;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
 
-        p {
-            font-size: 15px;
-            margin-bottom: 15px;
-        }
+    /* Hover interaction */
+    .project-item:hover .icon-inline {
+      transform: translate(2px, -2px);
+      color: #111111;
+    }
 
-        /* PROJECT LIST */
-        .project-list {
-            list-style: none;
-        }
+    .project-item:hover .project-title {
+      color: #666666;
+    }
 
-        .project-item {
-            margin-bottom: 15px;
-        }
+    /* Social/Contact Links */
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
 
-        .project-title {
-            font-weight: bold;
-            color: #444444;
-        }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #666666;
+      transition: color 0.15s ease;
+    }
 
-        .project-desc {
-            font-size: 14px;
-            color: #666666;
-        }
-    </style>
+    .social-link:hover {
+      color: #111111;
+    }
+
+    .social-link .icon-large {
+      width: 18px;
+      height: 18px;
+      stroke-width: 1.75px;
+    }
+
+    footer {
+      margin-top: 6rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #f0f0f0;
+    }
+    
+    footer p {
+      font-size: 0.8rem;
+      color: #999999;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <!-- HEADER -->
-        <header>
-            <h1>Franco Leone</h1>
-            <div class="subtitle">Cloud Architect & Engineer</div>
-            <div class="links">
-                <a href="mailto:contact@leonefranco.com">contact@leonefranco.com</a>
-                <span class="divider">|</span>
-                <a href="https://github.com/leonefranco" target="_blank">GitHub</a>
-            </div>
-        </header>
+  <header>
+    <h1>Leone Franco</h1>
+    <p class="subtitle">Digital Content & Design</p>
+  </header>
 
-        <hr>
+  <main>
+    <p>Focusing on minimalist interfaces, technical execution, and clear visual architecture. Currently building projects with vanilla web stacks and clean logic structures.</p>
 
-        <!-- SOBRE MÍ -->
-        <section>
-            <h2>Sobre mí</h2>
-            <p>Hola, soy Franco. Me dedico al diseño, despliegue y optimización de infraestructura en la nube, enfocado en crear soluciones escalables, eficientes y seguras.</p>
-        </section>
+    <h2>Selected Projects</h2>
+    <div class="project-list">
+      
+      <!-- Project 1 -->
+      <a href="#" class="project-item">
+        <div class="project-info">
+          <div class="project-title">
+            Logic Matrix Mapper 
+            <i data-lucide="arrow-up-right" class="icon-inline"></i>
+          </div>
+          <div class="project-desc">Automated matrix tool optimizing boolean mapping outputs and index arrays.</div>
+        </div>
+      </a>
 
-        <!-- PROYECTOS / EXPERIENCIA -->
-        <section>
-            <h2>Proyectos destacados</h2>
-            <ul class="project-list">
-                <li class="project-item">
-                    <div class="project-title">Infraestructura Cloud Automatizada</div>
-                    <div class="project-desc">Diseño de arquitectura de alta disponibilidad utilizando infraestructura como código (IaC) para optimizar rendimiento y costos.</div>
-                </li>
-                <li class="project-item">
-                    <div class="project-title">Automatización de Tareas Técnicas</div>
-                    <div class="project-desc">Desarrollo de scripts y herramientas lógicas para la simplificación de flujos de trabajo e integración de sistemas.</div>
-                </li>
-            </ul>
-        </section>
+      <!-- Project 2 -->
+      <a href="#" class="project-item">
+        <div class="project-info">
+          <div class="project-title">
+            Architectural Studies
+            <i data-lucide="arrow-up-right" class="icon-inline"></i>
+          </div>
+          <div class="project-desc">3D spatial rendering explorations utilizing smooth concrete and low-contrast material maps.</div>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="#" class="project-item">
+        <div class="project-info">
+          <div class="project-title">
+            Cosas Bonitas Identity
+            <i data-lucide="arrow-up-right" class="icon-inline"></i>
+          </div>
+          <div class="project-desc">Sleek, brand identity systems designed strictly with typography and grid alignments.</div>
+        </div>
+      </a>
 
     </div>
 
+    <h2>Connect</h2>
+    <div class="social-links">
+      <a href="https://github.com/leonefranco" class="social-link" target="_blank" rel="noopener">
+        <i data-lucide="github" class="icon-large"></i>
+        <span>GitHub</span>
+      </a>
+      <a href="#" class="social-link">
+        <i data-lucide="mail" class="icon-large"></i>
+        <span>Email</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Leone Franco. Built with clean code.</p>
+  </footer>
+
+  <!-- Lucide Icons Core Injection -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // This looks for any data-lucide attribute and renders the crisp vector paths dynamically
+    lucide.createIcons();
+  </script>
 </body>
 </html>
