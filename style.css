@@ -1,0 +1,570 @@
+/* ==========================================================================
+   Franco Leone Portfolio - Custom Stylesheet (Editorial Grayscale)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:wght@700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+
+/* Design Tokens & Variables */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #555555;
+    --text-muted: #888888;
+    --heading-color: #111111;
+    --border-color: #f0f0f0;
+    
+    /* Dark Theme Footer Variables */
+    --footer-bg: #0d0d0d;
+    --footer-text: #ffffff;
+    --footer-text-secondary: #888888;
+    --footer-border: #1f1f1f;
+    
+    /* Layout */
+    --max-width: 680px;
+}
+
+/* Reset & Baseline Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 1.625;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    padding-bottom: 0 !important; /* Strict reset to prevent dynamic overflow bleed under the footer */
+}
+
+/* Primary Container */
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 6rem 1.5rem 0 1.5rem;
+}
+
+/* Generic Section Styles */
+section {
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--heading-color);
+    margin-bottom: 2.25rem;
+}
+
+/* Section 1: Hero / Introduction (Inter ONLY) */
+.hero {
+    border-top: none;
+    padding-top: 0;
+    padding-bottom: 5rem;
+}
+
+.hero-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--heading-color);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--text-color);
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
+    text-align: justify; /* Justified Hero Subtitle */
+}
+
+.hero-objective {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--heading-color);
+    border-left: 2px solid var(--heading-color);
+    padding-left: 1.25rem;
+    margin-top: 2rem;
+}
+
+/* Section 2: Live Learning Log */
+.log-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.log-entry {
+    display: grid;
+    grid-template-columns: 85px 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+}
+
+@media (max-width: 480px) {
+    .log-entry {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+    }
+}
+
+.log-stamp {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    letter-spacing: 0.05em;
+}
+
+.log-detail {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text-color);
+    text-align: justify; /* Justified Live Log description */
+}
+
+.log-meta {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--heading-color);
+    border: 1px solid var(--border-color);
+    padding: 2px 6px;
+    margin-left: 0.5rem;
+    display: inline-block;
+}
+
+/* Section 3: Skills Section - Styled in Matrix-like Pattern */
+.skills-matrix {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+}
+
+.skills-matrix-cell {
+    padding: 1.75rem;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+@media (max-width: 580px) {
+    .skills-matrix {
+        grid-template-columns: 1fr;
+    }
+}
+
+.skill-group-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.02em;
+}
+
+.skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.skill-item {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-bullet {
+    width: 4px;
+    height: 4px;
+    background-color: var(--text-muted);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Section 4: Project Registry - Editorial 1:1 Card Carousel (Mouse Scroll Only) */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.project-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    padding: 0.5rem 0;
+    cursor: grab; /* Desktop visual hint for drag */
+    user-select: none; /* Prevent highlighting text during drag */
+}
+
+.project-carousel:active {
+    cursor: grabbing;
+}
+
+.project-carousel::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome/Safari */
+}
+
+.project-card {
+    flex: 0 0 75%;
+    border: 1px solid var(--border-color);
+    padding: 3rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--bg-color);
+    aspect-ratio: 1 / 1; /* Strict 1:1 square card constraint */
+}
+
+.project-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-card-case {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    letter-spacing: 0.05em;
+}
+
+.project-card-metrics {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    letter-spacing: -0.01em;
+}
+
+.project-card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-card-title {
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--heading-color);
+    margin-bottom: 0.75rem;
+}
+
+.project-card-desc {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-card-quote {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    color: var(--text-color);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--heading-color);
+    margin-top: 1rem;
+}
+
+@media (max-width: 520px) {
+    .project-card {
+        flex: 0 0 88%;
+        padding: 1.75rem;
+    }
+    .project-card-title {
+        font-size: 1.15rem;
+        margin-bottom: 0.5rem;
+    }
+    .project-card-desc {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+    .project-card-quote {
+        font-size: 0.78rem;
+        padding-left: 1rem;
+    }
+}
+
+/* Section 5: Certifications and Badges - Styled in Matrix-like Pattern */
+.certs-matrix {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+}
+
+.certs-matrix-cell {
+    padding: 1.75rem;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 110px;
+}
+
+@media (max-width: 580px) {
+    .certs-matrix {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cert-title {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--heading-color);
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+}
+
+.cert-org {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+/* Section 6: Footer Layout & Constraints */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden; /* Avoid layout offset bleed */
+    padding: 5.5rem 0 0 0;
+    box-sizing: border-box;
+    margin-top: 6rem;
+}
+
+.footer-content-wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1.7fr;
+    gap: 2rem;
+    margin-bottom: 5.5rem;
+}
+
+@media (max-width: 650px) {
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin-bottom: 4rem;
+    }
+}
+
+.footer-col {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+}
+
+.footer-col.col-brand {
+    border-right: 1px solid var(--footer-border);
+    padding-right: 1.5rem;
+}
+
+@media (max-width: 650px) {
+    .footer-col.col-brand {
+        border-right: none;
+        border-bottom: 1px solid var(--footer-border);
+        padding-right: 0;
+        padding-bottom: 2rem;
+    }
+}
+
+.footer-brand-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--footer-text);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.02em;
+}
+
+.footer-brand-subtitle {
+    font-weight: 300;
+    color: var(--footer-text-secondary);
+    margin-bottom: 1.75rem;
+}
+
+/* Reimaged status display as technical indicator */
+.footer-status-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.status-indicator {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--footer-text);
+    border: 1px solid var(--footer-border);
+    padding: 3px 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: #121212;
+    white-space: nowrap;
+}
+
+.status-dot {
+    width: 5px;
+    height: 5px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.footer-copyright {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: var(--footer-text-secondary);
+}
+
+.footer-col-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--footer-text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+/* Nav links: gray titles, white hover with animated slide line from left */
+.footer-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.footer-nav-links a {
+    color: var(--footer-text-secondary); /* same gray as titles */
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.85rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+.footer-nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.footer-nav-links a:hover {
+    color: #ffffff;
+}
+
+.footer-nav-links a:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+/* Location Clock styling */
+.footer-clock-wrapper {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--footer-text-secondary);
+    margin-bottom: 1.75rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.social-icon-link {
+    color: var(--footer-text-secondary);
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    will-change: transform, color; /* hardware rendering hints for social icon transitions */
+}
+
+.social-icon-link:hover {
+    color: var(--footer-text);
+    transform: translateY(-2px);
+}
+
+/* Bottom Anchor Signature Clipping styling with hardware optimization layers to prevent flash bugs */
+.footer-signature-container {
+    width: 100%;
+    overflow: hidden; /* Clips signature at baseline */
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0); /* Force composition layer */
+    backface-visibility: hidden;
+}
+
+.footer-signature-text {
+    font-family: 'Bodoni Moda SC', Georgia, serif; /* Final font choice */
+    font-size: 13vw;
+    font-weight: 700;
+    color: var(--footer-text);
+    line-height: 0.85;
+    white-space: nowrap;
+    text-align: center;
+    letter-spacing: 0.01em;
+    transform: translateY(0.75vw) translateZ(0); /* Pushes signature down & isolates layer rendering */
+    backface-visibility: hidden;
+    will-change: transform;
+    display: block;
+}

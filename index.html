@@ -1,233 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leone Franco | Portfolio</title>
-  
-  <!-- Inter Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <style>
-    /* Reset & Base Layout */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #1a1a1a;
-      line-height: 1.6;
-      padding: 4rem 2rem;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    /* Typography Hierarchy */
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      color: #111111;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 1.1rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      color: #111111;
-      margin-top: 3.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    p {
-      font-size: 0.95rem;
-      font-weight: 400;
-      color: #666666;
-    }
-
-    /* Layout Components */
-    header {
-      margin-bottom: 3.5rem;
-    }
-
-    .subtitle {
-      font-size: 1rem;
-      color: #888888;
-      font-weight: 400;
-    }
-
-    /* Project List */
-    .project-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .project-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid #f0f0f0;
-      text-decoration: none;
-      group: hover;
-    }
-
-    .project-info {
-      max-width: 85%;
-    }
-
-    .project-title {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #111111;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .project-desc {
-      font-size: 0.9rem;
-      color: #666666;
-      margin-top: 0.25rem;
-    }
-
-    /* Icon Utility Alignment */
-    .icon-inline {
-      width: 14px;
-      height: 14px;
-      stroke-width: 2px;
-      color: #999999;
-      transition: transform 0.15s ease, color 0.15s ease;
-    }
-
-    /* Hover interaction */
-    .project-item:hover .icon-inline {
-      transform: translate(2px, -2px);
-      color: #111111;
-    }
-
-    .project-item:hover .project-title {
-      color: #666666;
-    }
-
-    /* Social/Contact Links */
-    .social-links {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: #666666;
-      transition: color 0.15s ease;
-    }
-
-    .social-link:hover {
-      color: #111111;
-    }
-
-    .social-link .icon-large {
-      width: 18px;
-      height: 18px;
-      stroke-width: 1.75px;
-    }
-
-    footer {
-      margin-top: 6rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #f0f0f0;
-    }
-    
-    footer p {
-      font-size: 0.8rem;
-      color: #999999;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franco Leone — Cloud Engineer & Platform Architect</title>
+    <meta name="description" content="Minimalist, grid-driven editorial portfolio of Franco Leone, specialized in cloud systems engineering, container platform architecture, and Infrastructure as Code (IaC).">
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Leone Franco</h1>
-    <p class="subtitle">Digital Content & Design</p>
-  </header>
+    <main>
+        <!-- SECTION 1: HERO / "WORKING TOWARD" HERO (Cloud-focused and Justified Subtitle) -->
+        <section class="hero" id="about">
+            <h1 class="hero-title">Franco Leone</h1>
+            <p class="hero-subtitle">
+                Independent cloud engineer and platform architect building resilient cloud-native infrastructures, Kubernetes ecosystems, and Infrastructure as Code systems. Designing decoupled API topologies and publishing technical analysis on platform scaling.
+            </p>
+            <div class="hero-objective">
+                <strong>Working Toward:</strong> Architecting multi-region telemetry ingest networks and establishing automated compliance validations for immutable serverless deployments.
+            </div>
+        </section>
 
-  <main>
-    <p>Focusing on minimalist interfaces, technical execution, and clear visual architecture. Currently building projects with vanilla web stacks and clean logic structures.</p>
+        <!-- SECTION 2: "LIVE LEARNING" LOG (Cloud-focused and Justified Detail) -->
+        <section id="learning-log">
+            <h2 class="section-title">Live Learning Log</h2>
+            <div class="log-container">
+                <div class="log-entry">
+                    <span class="log-stamp">JUL 2026</span>
+                    <span class="log-detail">
+                        Implementing eBPF-based telemetry metrics gathering inside Kubernetes nodes to track socket-level connection bottlenecks. <span class="log-meta">Cloud Telemetry</span>
+                    </span>
+                </div>
+                <div class="log-entry">
+                    <span class="log-stamp">JUN 2026</span>
+                    <span class="log-detail">
+                        Integrating declarative OPA Gatekeeper policy validations directly into GitOps deployment webhooks for secure pipelines. <span class="log-meta">Security & IaC</span>
+                    </span>
+                </div>
+                <div class="log-entry">
+                    <span class="log-stamp">MAY 2026</span>
+                    <span class="log-detail">
+                        Evaluating performance trade-offs of VPC transit gateways against direct peer routes under heavy throughput stress. <span class="log-meta">Networking</span>
+                    </span>
+                </div>
+                <div class="log-entry">
+                    <span class="log-stamp">APR 2026</span>
+                    <span class="log-detail">
+                        Refactoring serverless container start times to minimize database pooling connection latency on scale-out. <span class="log-meta">Serverless</span>
+                    </span>
+                </div>
+            </div>
+        </section>
 
-    <h2>Selected Projects</h2>
-    <div class="project-list">
-      
-      <!-- Project 1 -->
-      <a href="#" class="project-item">
-        <div class="project-info">
-          <div class="project-title">
-            Logic Matrix Mapper 
-            <i data-lucide="arrow-up-right" class="icon-inline"></i>
-          </div>
-          <div class="project-desc">Automated matrix tool optimizing boolean mapping outputs and index arrays.</div>
+        <!-- SECTION 3: SKILLS SECTION - MATRIX LAYOUT (Cloud-focused) -->
+        <section id="skills">
+            <h2 class="section-title">Skills & Toolsets Matrix</h2>
+            <div class="skills-matrix">
+                <!-- Cell 1: Cloud Architecture -->
+                <div class="skills-matrix-cell">
+                    <h3 class="skill-group-title">Cloud Architecture</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item"><span class="skill-bullet"></span>AWS & GCP Implementations</li>
+                        <li class="skill-item"><span class="skill-bullet"></span>Kubernetes (EKS & GKE)</li>
+                        <li class="skill-item"><span class="skill-bullet"></span>Terraform & OpenTofu IaC</li>
+                    </ul>
+                </div>
+                <!-- Cell 2: Platform Engineering -->
+                <div class="skills-matrix-cell">
+                    <h3 class="skill-group-title">Platform Engineering</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item"><span class="skill-bullet"></span>Docker Container Architectures</li>
+                        <li class="skill-item"><span class="skill-bullet"></span>GitOps Systems (ArgoCD & Flux)</li>
+                        <li class="skill-item"><span class="skill-bullet"></span>CI/CD (GitHub Actions / GitLab)</li>
+                    </ul>
+                </div>
+                <!-- Cell 3: Systems & Networking -->
+                <div class="skills-matrix-cell">
+                    <h3 class="skill-group-title">Systems & Networking</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item"><span class="skill-bullet"></span>Linux Core Systems & Scripting</li>
+                        <li class="skill-item"><span class="skill-bullet"></span>VPC Routing & Transit Gateways</li>
+                        <li class="skill-item"><span class="skill-bullet"></span>IAM Least-Privilege Policies</li>
+                    </ul>
+                </div>
+                <!-- Cell 4: Telemetry & States -->
+                <div class="skills-matrix-cell">
+                    <h3 class="skill-group-title">Telemetry & States</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item"><span class="skill-bullet"></span>eBPF Network Instrumentation</li>
+                        <li class="skill-item"><span class="skill-bullet"></span>Prometheus & Grafana Analytics</li>
+                        <li class="skill-item"><span class="skill-bullet"></span>Declarative UI State Controls</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: PROJECT REGISTRY - 1:1 MOUSE-SCROLL CAROUSEL -->
+        <section id="projects">
+            <h2 class="section-title">Project Registry</h2>
+            <div class="carousel-wrapper">
+                <div class="project-carousel" id="project-carousel">
+                    <!-- Card 1 -->
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card-header">
+                                <span class="project-card-case">Case #003</span>
+                                <span class="project-card-metrics">10/10 • Perfect Delivery</span>
+                            </div>
+                            <div class="project-card-body">
+                                <h3 class="project-card-title">Aether Labs</h3>
+                                <p class="project-card-desc">High-scale multi-region telemetry network featuring Terraform automated deployments and Prometheus telemetry routing.</p>
+                                <!-- Here you can add a quotes icon. (Commented placement for visual graphics) -->
+                                <!-- <span class="quote-icon-placeholder">Quotes Icon Here</span> -->
+                                <blockquote class="project-card-quote">
+                                    "Franco's strict execution of network security baselines and IaC modularity transformed our cloud telemetry pipeline."
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card-header">
+                                <span class="project-card-case">Case #002</span>
+                                <span class="project-card-metrics">9.8/10 • Flawless Execution</span>
+                            </div>
+                            <div class="project-card-body">
+                                <h3 class="project-card-title">Synthetica Corp</h3>
+                                <p class="project-card-desc">Zero-downtime container cluster migration of core services from legacy VMs to managed Kubernetes structures.</p>
+                                <!-- Here you can add a quotes icon. (Commented placement for visual graphics) -->
+                                <!-- <span class="quote-icon-placeholder">Quotes Icon Here</span> -->
+                                <blockquote class="project-card-quote">
+                                    "Absolute systems excellence. The migration script was robust and minimized service latency during the database handoff."
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card-header">
+                                <span class="project-card-case">Case #001</span>
+                                <span class="project-card-metrics">10/10 • Exceptional Launch</span>
+                            </div>
+                            <div class="project-card-body">
+                                <h3 class="project-card-title">Verdant Co</h3>
+                                <p class="project-card-desc">Serverless data pipeline processing large ecosystem records via AWS Lambda and event-driven notifications.</p>
+                                <!-- Here you can add a quotes icon. (Commented placement for visual graphics) -->
+                                <!-- <span class="quote-icon-placeholder">Quotes Icon Here</span> -->
+                                <blockquote class="project-card-quote">
+                                    "Total compliance with cloud scaling parameters. The platform handles traffic bursts effortlessly without database thread locking."
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CERTIFICATIONS AND BADGES - MATRIX LAYOUT (Cloud-focused) -->
+        <section id="certifications">
+            <h2 class="section-title">Certifications & Baselines Matrix</h2>
+            <div class="certs-matrix">
+                <!-- Cell 1 -->
+                <div class="certs-matrix-cell">
+                    <span class="cert-title">AWS Certified Solutions Architect – Professional</span>
+                    <span class="cert-org">Amazon Web Services • 2026</span>
+                </div>
+                <!-- Cell 2 -->
+                <div class="certs-matrix-cell">
+                    <span class="cert-title">Google Cloud Certified Professional Cloud Architect</span>
+                    <span class="cert-org">Google Cloud • 2025</span>
+                </div>
+                <!-- Cell 3 -->
+                <div class="certs-matrix-cell">
+                    <span class="cert-title">Certified Kubernetes Administrator (CKA)</span>
+                    <span class="cert-org">Cloud Native Computing Foundation • 2025</span>
+                </div>
+                <!-- Cell 4 -->
+                <div class="certs-matrix-cell">
+                    <span class="cert-title">HashiCorp Certified Terraform Associate</span>
+                    <span class="cert-org">HashiCorp • 2024</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SECTION 6: FOOTER (FULL-BLEED) -->
+    <footer>
+        <div class="footer-content-wrap">
+            <div class="footer-columns">
+                <!-- Column 1: Brand & Status (Technical Open Indicator) -->
+                <div class="footer-col col-brand">
+                    <h3 class="footer-brand-name">Franco Leone</h3>
+                    <p class="footer-brand-subtitle">Cloud Systems & Infrastructure</p>
+                    <div class="footer-status-wrapper">
+                        <span class="status-indicator">
+                            <span class="status-dot"></span>
+                            STATUS // ENGAGEMENTS OPEN
+                        </span>
+                    </div>
+                    <p class="footer-copyright">© 2026 Franco Leone. All rights reserved.</p>
+                </div>
+                
+                <!-- Column 2: Site Map -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Site Map</h4>
+                    <ul class="footer-nav-links">
+                        <li><a href="#about">Index</a></li>
+                        <li><a href="#projects">Selected Projects</a></li>
+                        <li><a href="#learning-log">Archive Cases</a></li>
+                        <li><a href="#certifications">About</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Location & Connect (Includes Live Timezone Clock - no seconds, Buenos Aires, Argentina format) -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Location</h4>
+                    <div class="footer-clock-wrapper">
+                        <span id="argentina-clock">Buenos Aires, Argentina 00:00 (UTC-3)</span>
+                    </div>
+                    
+                    <h4 class="footer-col-title">Connect</h4>
+                    <div class="footer-social-icons">
+                        <a href="https://linkedin.com" class="social-icon-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                        <a href="https://github.com" class="social-icon-link" aria-label="GitHub" target="_blank" rel="noopener">
+                            <i data-lucide="github"></i>
+                        </a>
+                        <a href="https://bsky.app" class="social-icon-link" aria-label="BlueSky" target="_blank" rel="noopener">
+                            <i data-lucide="bluesky"></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-icon-link" aria-label="X (former Twitter)" target="_blank" rel="noopener">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </a>
 
-      <!-- Project 2 -->
-      <a href="#" class="project-item">
-        <div class="project-info">
-          <div class="project-title">
-            Architectural Studies
-            <i data-lucide="arrow-up-right" class="icon-inline"></i>
-          </div>
-          <div class="project-desc">3D spatial rendering explorations utilizing smooth concrete and low-contrast material maps.</div>
+        <!-- Bottom Anchor Signature -->
+        <div class="footer-signature-container">
+            <span class="footer-signature-text">Franco Leone</span>
         </div>
-      </a>
+    </footer>
 
-      <!-- Project 3 -->
-      <a href="#" class="project-item">
-        <div class="project-info">
-          <div class="project-title">
-            Cosas Bonitas Identity
-            <i data-lucide="arrow-up-right" class="icon-inline"></i>
-          </div>
-          <div class="project-desc">Sleek, brand identity systems designed strictly with typography and grid alignments.</div>
-        </div>
-      </a>
+    <!-- Lucide Vector Icons Script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-    </div>
+        // 1. Live Timezone Clock Functionality (Argentina - UTC-3, no seconds, unified Buenos Aires, Argentina string)
+        function updateClock() {
+            const options = {
+                timeZone: 'America/Argentina/Buenos_Aires',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            };
+            const formatter = new Intl.DateTimeFormat([], options);
+            const clockEl = document.getElementById('argentina-clock');
+            if (clockEl) {
+                clockEl.textContent = 'Buenos Aires, Argentina ' + formatter.format(new Date()) + ' (UTC-3)';
+            }
+        }
+        setInterval(updateClock, 60000); // Update every minute since seconds are omitted
+        updateClock();
 
-    <h2>Connect</h2>
-    <div class="social-links">
-      <a href="https://github.com/leonefranco" class="social-link" target="_blank" rel="noopener">
-        <i data-lucide="github" class="icon-large"></i>
-        <span>GitHub</span>
-      </a>
-      <a href="#" class="social-link">
-        <i data-lucide="mail" class="icon-large"></i>
-        <span>Email</span>
-      </a>
-    </div>
-  </main>
+        // 2. Mouse Drag-to-Scroll & Infinite Seamless Carousel Functionality
+        const slider = document.getElementById('project-carousel');
+        if (slider) {
+            // Clone the project cards to form a seamless infinite marquee loop
+            const originalCards = Array.from(slider.children);
+            originalCards.forEach(card => {
+                const clone = card.cloneNode(true);
+                slider.appendChild(clone);
+            });
 
-  <footer>
-    <p>&copy; 2026 Leone Franco. Built with clean code.</p>
-  </footer>
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let scrollSpeed = 0.2; // pixels per frame
+            let currentScroll = 0; // Accumulates decimal scroll offsets
 
-  <!-- Lucide Icons Core Injection -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    // This looks for any data-lucide attribute and renders the crisp vector paths dynamically
-    lucide.createIcons();
-  </script>
+            // Smooth idle scroll loop
+            function autoScroll() {
+                if (!isDown) {
+                    currentScroll += scrollSpeed;
+
+                    const halfScrollWidth = slider.scrollWidth / 2;
+                    // Seamless scroll wrap-around
+                    if (currentScroll >= halfScrollWidth) {
+                        currentScroll -= halfScrollWidth;
+                    }
+                    slider.scrollLeft = Math.round(currentScroll);
+                } else {
+                    // Keep tracker synced during drag
+                    currentScroll = slider.scrollLeft;
+                }
+                requestAnimationFrame(autoScroll);
+            }
+
+            // Begin auto scroll
+            autoScroll();
+
+            // Wrap scroll position during manual trackpad / scrollwheel navigation
+            slider.addEventListener('scroll', () => {
+                const halfScrollWidth = slider.scrollWidth / 2;
+                if (slider.scrollLeft >= halfScrollWidth) {
+                    slider.scrollLeft -= halfScrollWidth;
+                } else if (slider.scrollLeft <= 0) {
+                    slider.scrollLeft += halfScrollWidth;
+                }
+                // Sync tracker during manual trackpad scrolls
+                if (!isDown) {
+                    currentScroll = slider.scrollLeft;
+                }
+            });
+
+            // Click-and-drag handling
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener('mouseup', () => {
+                if (isDown) {
+                    isDown = false;
+                }
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                if (isDown) {
+                    isDown = false;
+                }
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 1.5; // Drag sensitivity
+                let newScrollLeft = scrollLeft - walk;
+
+                const halfScrollWidth = slider.scrollWidth / 2;
+                // Infinite drag wrap-around
+                if (newScrollLeft >= halfScrollWidth) {
+                    newScrollLeft -= halfScrollWidth;
+                    startX = e.pageX - slider.offsetLeft;
+                    scrollLeft = newScrollLeft;
+                } else if (newScrollLeft < 0) {
+                    newScrollLeft += halfScrollWidth;
+                    startX = e.pageX - slider.offsetLeft;
+                    scrollLeft = newScrollLeft;
+                }
+
+                slider.scrollLeft = newScrollLeft;
+            });
+        }
+    </script>
 </body>
 </html>
