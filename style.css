@@ -7,6 +7,7 @@
 /* Design Tokens & Variables */
 :root {
     --bg-color: #ffffff;
+    --bg-secondary: #fafafa;
     --text-color: #555555;
     --text-muted: #888888;
     --heading-color: #111111;
@@ -51,7 +52,53 @@ body {
 main {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 6rem 1.5rem 0 1.5rem;
+    padding: 2rem 1.5rem 0 1.5rem;
+}
+
+/* Header and Language Selector */
+.portfolio-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.lang-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0 0.15rem;
+    transition: color 0.2s ease;
+}
+
+.lang-btn:hover {
+    color: var(--heading-color);
+}
+
+.lang-btn.active {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.lang-divider {
+    color: #dddddd;
+    font-size: 0.65rem;
+    pointer-events: none;
+    user-select: none;
 }
 
 /* Generic Section Styles */
@@ -155,7 +202,101 @@ section {
     display: inline-block;
 }
 
-/* Section 3: Skills Section - Styled in Matrix-like Pattern */
+/* Section 3: Skills Section - Horizontal Marquee */
+.skills-carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 0;
+    background-color: var(--bg-color);
+}
+
+.skills-marquee {
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+    overflow-x: hidden;
+    user-select: none;
+    pointer-events: none; /* Disables mouse dragging and text highlighting entirely */
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--heading-color);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.skill-tag img,
+.skill-tag svg {
+    width: 13px;
+    height: 13px;
+    object-fit: contain;
+    /* Native brand colors enabled */
+}
+
+.skill-separator {
+    color: #cccccc;
+    font-weight: 300;
+}
+
+/* Interactive Skills Toggle and Expandable Drawer Styling */
+.skills-toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.skills-toggle-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--heading-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s ease;
+    background-color: var(--bg-color);
+}
+
+.skills-toggle-btn:hover {
+    background-color: var(--heading-color);
+    color: var(--bg-color);
+    border-color: var(--heading-color);
+}
+
+.skills-toggle-btn .toggle-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+.skills-detail-drawer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease, margin-top 0.4s ease;
+}
+
+.skills-detail-drawer.is-open {
+    max-height: 900px; /* Adjust to hold content comfortably */
+    opacity: 1;
+    margin-top: 2rem;
+}
+
+/* Restoring matrix list rules inside the drawer */
 .skills-matrix {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -288,15 +429,30 @@ section {
     line-height: 1.6;
 }
 
+.project-card-quote-wrap {
+    margin-top: 1.5rem;
+    position: relative;
+    padding: 0;
+}
+
+.quote-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--text-color);
+    margin-bottom: 0.6rem;
+    display: block;
+}
+
 .project-card-quote {
     font-family: 'Inter', sans-serif;
     font-style: italic;
     color: var(--text-color);
-    font-size: 0.875rem;
-    line-height: 1.5;
-    padding-left: 1.25rem;
-    border-left: 2px solid var(--heading-color);
-    margin-top: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.625;
+    margin: 0;
+    padding: 0 1rem;
+    border-left: none;
+    text-align: center;
 }
 
 @media (max-width: 520px) {
@@ -323,39 +479,93 @@ section {
 .certs-matrix {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border-top: 1px solid var(--border-color);
-    border-left: 1px solid var(--border-color);
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .certs-matrix-cell {
-    padding: 1.75rem;
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    padding: 2rem 1.75rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.75rem;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+}
+
+.certs-matrix-cell:hover {
+    transform: translateY(-4px);
+    border-color: var(--heading-color);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.03);
+}
+
+.cert-badge-frame {
+    width: 72px;
+    height: 72px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.3s ease;
+    border-radius: 2px;
+}
+
+.certs-matrix-cell:hover .cert-badge-frame {
+    border-color: var(--heading-color);
+}
+
+.cert-badge-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.cert-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 110px;
+    justify-content: center;
+    gap: 0.4rem;
 }
 
 @media (max-width: 580px) {
     .certs-matrix {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
 
 .cert-title {
-    font-size: 0.9rem;
-    font-weight: 400;
+    font-size: 0.95rem;
+    font-weight: 500;
     color: var(--heading-color);
     line-height: 1.4;
-    margin-bottom: 0.75rem;
+    margin: 0;
+}
+
+.cert-org-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cert-status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: inline-block;
 }
 
 .cert-org {
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 0.72rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--text-muted);
 }
 
@@ -534,7 +744,13 @@ footer {
     transition: color 0.2s ease, transform 0.2s ease;
     display: inline-flex;
     align-items: center;
-    will-change: transform, color; /* hardware rendering hints for social icon transitions */
+    will-change: transform, color;
+}
+
+.social-icon-link svg {
+    width: 20px;
+    height: 20px;
+    display: block;
 }
 
 .social-icon-link:hover {
