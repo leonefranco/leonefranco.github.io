@@ -225,36 +225,71 @@
         <!-- SECTION 5: CERTIFICATIONS AND BADGES - MATRIX LAYOUT (Cloud-focused) -->
         <section id="certifications">
             <h2 class="section-title" data-translate="certs-title">Certifications & Baselines Matrix</h2>
-            <div class="certs-matrix">
-                <!-- Cell 1 -->
-                <div class="certs-matrix-cell">
-                    <div class="cert-badge-frame">
-                        <img src="assets/giac-gcad-badge.svg" alt="GIAC GCAD Badge" class="cert-badge-img">
-                    </div>
-                    <div class="cert-info">
-                        <span class="cert-title" data-translate="cert-1-title">GIAC Cloud Security Architecture and Design (GCAD)</span>
-                        <div class="cert-org-row">
-                            <span class="cert-status-dot"></span>
-                            <span class="cert-org">GIAC Certifications</span>
+            <div class="certs-ledger">
+                <!-- Row 1 -->
+                <div class="cert-row-ledger" onclick="openCertModal('gcad')">
+                    <div class="cert-left-ledger">
+                        <div class="cert-badge-box-ledger">
+                            <img src="assets/giac-gcad-badge.svg" alt="GIAC GCAD Badge" class="cert-badge-ledger">
                         </div>
+                        <div class="cert-info-ledger">
+                            <span class="cert-title-ledger" data-translate="cert-1-title">GIAC Cloud Security Architecture and Design (GCAD)</span>
+                            <span class="cert-org-ledger">GIAC Certifications</span>
+                        </div>
+                    </div>
+                    <div class="cert-right-ledger">
+                        <span class="cert-status-tag-ledger">// VERIFIED</span>
+                        <span class="cert-arrow-ledger">→</span>
                     </div>
                 </div>
-                <!-- Cell 2 -->
-                <div class="certs-matrix-cell">
-                    <div class="cert-badge-frame">
-                        <img src="assets/ielts-badge.svg" alt="IELTS Badge" class="cert-badge-img">
-                    </div>
-                    <div class="cert-info">
-                        <span class="cert-title" data-translate="cert-2-title">IELTS Academic Band 7.5</span>
-                        <div class="cert-org-row">
-                            <span class="cert-status-dot"></span>
-                            <span class="cert-org">British Council / IDP IELTS</span>
+                <!-- Row 2 -->
+                <div class="cert-row-ledger" onclick="openCertModal('ielts')">
+                    <div class="cert-left-ledger">
+                        <div class="cert-badge-box-ledger">
+                            <img src="assets/ielts-badge.svg" alt="IELTS Badge" class="cert-badge-ledger">
                         </div>
+                        <div class="cert-info-ledger">
+                            <span class="cert-title-ledger" data-translate="cert-2-title">IELTS Academic Band 7.5</span>
+                            <span class="cert-org-ledger">British Council</span>
+                        </div>
+                    </div>
+                    <div class="cert-right-ledger">
+                        <span class="cert-status-tag-ledger expired">// EXPIRED</span>
+                        <span class="cert-arrow-ledger">→</span>
+                    </div>
+                </div>
+                <!-- Row 3 -->
+                <div class="cert-row-ledger" onclick="openCertModal('az900')">
+                    <div class="cert-left-ledger">
+                        <div class="cert-badge-box-ledger">
+                            <img src="assets/microsoft-badge.svg" alt="Microsoft Badge" class="cert-badge-ledger">
+                        </div>
+                        <div class="cert-info-ledger">
+                            <span class="cert-title-ledger" data-translate="cert-3-title">Microsoft Certified: Azure Fundamentals</span>
+                            <span class="cert-org-ledger">Microsoft</span>
+                        </div>
+                    </div>
+                    <div class="cert-right-ledger">
+                        <span class="cert-status-tag-ledger">// VERIFIED</span>
+                        <span class="cert-arrow-ledger">→</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Certifications Details Modal -->
+    <div id="cert-modal" class="cert-modal-overlay">
+        <div class="cert-modal-box">
+            <button class="cert-modal-close" onclick="closeCertModal()" aria-label="Close modal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="cert-modal-content">
+                <canvas id="modal-cert-canvas" class="cert-modal-canvas"></canvas>
+                <div id="modal-cert-fallback-container" style="width: 100%; height: 100%; min-height: 70vh; display: none;"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- SECTION 6: FOOTER (FULL-BLEED) -->
     <footer>
@@ -294,19 +329,26 @@
                     <h4 class="footer-col-title" data-translate="footer-col-connect">Connect</h4>
                     <div class="footer-social-icons">
                         <a href="https://linkedin.com" class="social-icon-link" aria-label="LinkedIn" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
                         </a>
                         <a href="https://github.com" class="social-icon-link" aria-label="GitHub" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                         </a>
                         <a href="https://bsky.app" class="social-icon-link" aria-label="BlueSky" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"/>
-                            </svg>
+                            <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"/></svg>
                         </a>
-
+                        <a href="mailto:contact@francoleone.dev" class="social-icon-link" aria-label="Email">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Gmail</title><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+                        </a>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Professional hosting, domain and build credits -->
+            <div class="footer-credits-container">
+                <p class="footer-credits-text" data-translate="footer-credits-1">Website deployed with GitHub Pages.</p>
+                <p class="footer-credits-text" data-translate="footer-credits-2">Designed and built using Google Antigravity.</p>
+                <p class="footer-credits-text" data-translate="footer-credits-3">The domain is registered and hosted by Squarespace.</p>
             </div>
         </div>
 
@@ -315,7 +357,7 @@
             <span class="footer-signature-text">Franco Leone</span>
         </div>
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script>
 
         // 1. Live Timezone Clock Functionality (Argentina - UTC-3, no seconds, unified Buenos Aires, Argentina string)
@@ -562,7 +604,17 @@
                 "footer-link-cases": "Archive Cases",
                 "footer-link-about": "About",
                 "footer-col-location": "Location",
-                "footer-col-connect": "Connect"
+                "footer-col-connect": "Connect",
+                "modal-label-status": "Status",
+                "modal-label-skills": "Verified Focus",
+                "gcad-status": "Active / Verified",
+                "gcad-skills": "Multi-region cloud-native infrastructure, compliance auditing, advanced IAM policies design, VPC transit gateway security topologies, and automated pipeline verification.",
+                "ielts-status": "Verified / Band 7.5 (C1 Academic)",
+                "ielts-skills": "High-proficiency professional communications, technical analysis writing, active platform scaling review writing, and bilingual engineering team collaboration.",
+                "footer-credits-1": "Website deployed with GitHub Pages.",
+                "footer-credits-2": "Designed and built using Google Antigravity.",
+                "footer-credits-3": "The domain is registered and hosted by Squarespace.",
+                "cert-3-title": "Microsoft Certified: Azure Fundamentals"
             },
             es: {
                 "hero-subtitle": "Ingeniero de nube independiente y arquitecto de plataformas construyendo infraestructuras nativas de la nube resilientes, ecosistemas de Kubernetes y sistemas de infraestructura como código (IaC). Diseñando topologías de API desacopladas y publicando análisis técnicos sobre escalabilidad de plataformas.",
@@ -579,7 +631,7 @@
                 "log-3-detail": "Evaluación de compensaciones de rendimiento de las puertas de enlace de tránsito VPC frente a las rutas de pares directas bajo estrés de alto rendimiento.",
                 "log-3-meta": "Redes",
                 "log-4-stamp": "ABR 2026",
-                "log-4-detail": "Refactorización de tiempos de inicio de contenedores serverless para minimizar la latencia de conexión de agrupación de bases de datos al escalar.",
+                "log-4-detail": "Refactorizzazione de tiempos de inicio de contenedores serverless para minimizar la latencia de conexión de agrupación de bases de datos al escalar.",
                 "log-4-meta": "Serverless",
                 "skills-title": "Habilidades y Herramientas",
                 "skills-toggle-btn-text": "Desglose Detallado",
@@ -633,14 +685,24 @@
                 "cert-1-title": "GIAC Cloud Security Architecture and Design (GCAD)",
                 "cert-2-title": "IELTS Academic Band 7.5",
                 "footer-brand-subtitle": "Sistemas y Redes de Nube",
-                "footer-status": "ESTADO // DISPONIBLE PARA PROYECTOS",
+                "footer-status": "ESTADO // DISPONIBILE PARA PROYECTOS",
                 "footer-col-sitemap": "Mapa del Sitio",
                 "footer-link-index": "Inicio",
                 "footer-link-projects": "Proyectos Seleccionados",
                 "footer-link-cases": "Casos de Archivo",
                 "footer-link-about": "Acerca de",
                 "footer-col-location": "Ubicación",
-                "footer-col-connect": "Conectar"
+                "footer-col-connect": "Conectar",
+                "modal-label-status": "Estado",
+                "modal-label-skills": "Enfoque Verificato",
+                "gcad-status": "Activo / Verificado",
+                "gcad-skills": "Infraestructura nativa de la nube multirregión, auditoría de cumplimiento, diseño de políticas avanzadas de IAM, topologías de seguridad de VPC transit gateway y verificación automatizada de canalizaciones.",
+                "ielts-status": "Verificato / Banda 7.5 (C1 Académico)",
+                "ielts-skills": "Comunicaciones profesionales de alta competencia, redacción de análisis técnicos, redacción de revisiones de escalado de plataformas y colaboración en equipos de ingeniería bilingües.",
+                "footer-credits-1": "Sitio web desplegado con GitHub Pages.",
+                "footer-credits-2": "Diseñado y construido usando Google Antigravity.",
+                "footer-credits-3": "El dominio está registrado y alojado por Squarespace.",
+                "cert-3-title": "Microsoft Certified: Azure Fundamentals"
             },
             it: {
                 "hero-subtitle": "Ingegnere cloud indipendente e architetto di piattaforme che realizza infrastrutture cloud-native resilienti, ecosistemi Kubernetes e sistemi di Infrastructure as Code (IaC). Progettazione di topologie API disaccoppiate e pubblicazione di analisi tecniche sullo scaling delle piattaforme.",
@@ -718,7 +780,17 @@
                 "footer-link-cases": "Archivio Casi",
                 "footer-link-about": "Informazioni",
                 "footer-col-location": "Località",
-                "footer-col-connect": "Contatti"
+                "footer-col-connect": "Contatti",
+                "modal-label-status": "Stato",
+                "modal-label-skills": "Focus Verificato",
+                "gcad-status": "Attivo / Verificato",
+                "gcad-skills": "Infrastruttura cloud-native multiregione, audit di conformità, progettazione di policy IAM avanzate, topologie di sicurezza VPC transit gateway e verifica automatizzata delle pipeline.",
+                "ielts-status": "Verificato / Banda 7.5 (C1 Accademico)",
+                "ielts-skills": "Comunicazioni professionali ad alta competenza, stesura di analisi tecniche, stesura di recensioni sullo scaling di piattaforme e collaborazione in team di ingegneria bilingue.",
+                "footer-credits-1": "Sito web distribuito con GitHub Pages.",
+                "footer-credits-2": "Progettato e costruito utilizzando Google Antigravity.",
+                "footer-credits-3": "Il dominio è registrato e ospitato da Squarespace.",
+                "cert-3-title": "Microsoft Certified: Azure Fundamentals"
             }
         };
 
@@ -759,6 +831,158 @@
                 const lang = btn.getAttribute('data-lang');
                 translatePage(lang);
             });
+        });
+
+        // 6. Certifications Details Popup Modal Controller
+        let currentPdfRenderTask = null;
+
+        function openCertModal(certId) {
+            const modal = document.getElementById('cert-modal');
+            const canvas = document.getElementById('modal-cert-canvas');
+            const fallbackContainer = document.getElementById('modal-cert-fallback-container');
+            if (!modal || !canvas || !fallbackContainer) return;
+
+            let pdfUrl = '';
+            if (certId === 'gcad') {
+                pdfUrl = 'assets/gcad-certificate.pdf';
+            } else if (certId === 'ielts') {
+                pdfUrl = 'assets/ielts-certificate.pdf';
+            } else if (certId === 'az900') {
+                pdfUrl = 'assets/az900-certificate.pdf';
+            }
+
+            if (!pdfUrl) return;
+
+            // Display overlay
+            modal.style.display = 'flex';
+            modal.offsetHeight; // Force layout reflow
+            modal.classList.add('is-active');
+
+            const pdfjsLib = window.pdfjsLib;
+            const isLocal = window.location.protocol === 'file:';
+
+            if (isLocal || !pdfjsLib) {
+                // Local file:// protocol or CDN failure: fallback to native browser object embed to bypass CORS blocks
+                canvas.style.display = 'none';
+                fallbackContainer.style.display = 'block';
+
+                // Adjust width of fallback container dynamically to match the certificate's aspect ratio
+                let aspect = 1.414; // Default landscape (GCAD)
+                if (certId === 'ielts') {
+                    aspect = 0.707; // Portrait (IELTS)
+                }
+
+                let targetHeight = window.innerHeight * 0.8;
+                let targetWidth = targetHeight * aspect;
+                const maxWidth = window.innerWidth * 0.9;
+
+                if (targetWidth > maxWidth) {
+                    targetWidth = maxWidth;
+                    targetHeight = targetWidth / aspect;
+                }
+
+                fallbackContainer.style.width = `${targetWidth}px`;
+                fallbackContainer.style.height = `${targetHeight}px`;
+
+                fallbackContainer.innerHTML = `<object data="${pdfUrl}#toolbar=0&navpanes=0&view=Fit" type="application/pdf" style="width: 100%; height: 100%; border: none;">
+                    <iframe src="${pdfUrl}#toolbar=0&navpanes=0&view=Fit" style="width: 100%; height: 100%; border: none;"></iframe>
+                </object>`;
+            } else {
+                // HTTP/HTTPS server: render cleanly via PDF.js on HTML5 canvas
+                canvas.style.display = 'block';
+                fallbackContainer.style.display = 'none';
+                fallbackContainer.innerHTML = '';
+
+                pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
+                    return pdf.getPage(1);
+                }).then(page => {
+                    const context = canvas.getContext('2d');
+                    
+                    // Scale layout to fit 80% of screen height dynamically, width scales as necessary
+                    const desiredHeight = window.innerHeight * 0.8;
+                    const maxAllowedWidth = window.innerWidth * 0.9;
+                    
+                    const unscaledViewport = page.getViewport({ scale: 1 });
+                    let scale = desiredHeight / unscaledViewport.height;
+                    
+                    // Cap width dynamically if it exceeds 90vw on very narrow screens
+                    if (unscaledViewport.width * scale > maxAllowedWidth) {
+                        scale = maxAllowedWidth / unscaledViewport.width;
+                    }
+                    
+                    const viewport = page.getViewport({ scale });
+                    
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+
+                    // Cancel previous rendering thread
+                    if (currentPdfRenderTask) {
+                        currentPdfRenderTask.cancel();
+                    }
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    currentPdfRenderTask = page.render(renderContext);
+                    return currentPdfRenderTask.promise;
+                }).catch(err => {
+                    console.error('Error rendering PDF via PDF.js:', err);
+                    // On render failure, fallback to native embed
+                    canvas.style.display = 'none';
+                    fallbackContainer.style.display = 'block';
+                    
+                    let aspect = 1.414;
+                    if (certId === 'ielts') {
+                        aspect = 0.707;
+                    }
+                    let targetHeight = window.innerHeight * 0.8;
+                    let targetWidth = targetHeight * aspect;
+                    const maxWidth = window.innerWidth * 0.9;
+                    if (targetWidth > maxWidth) {
+                        targetWidth = maxWidth;
+                        targetHeight = targetWidth / aspect;
+                    }
+                    fallbackContainer.style.width = `${targetWidth}px`;
+                    fallbackContainer.style.height = `${targetHeight}px`;
+
+                    fallbackContainer.innerHTML = `<object data="${pdfUrl}#toolbar=0&navpanes=0&view=Fit" type="application/pdf" style="width: 100%; height: 100%; border: none;">
+                        <iframe src="${pdfUrl}#toolbar=0&navpanes=0&view=Fit" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </object>`;
+                });
+            }
+        }
+
+        function closeCertModal() {
+            const modal = document.getElementById('cert-modal');
+            const canvas = document.getElementById('modal-cert-canvas');
+            const fallbackContainer = document.getElementById('modal-cert-fallback-container');
+            if (!modal) return;
+            modal.classList.remove('is-active');
+            setTimeout(() => {
+                if (!modal.classList.contains('is-active')) {
+                    modal.style.display = 'none';
+                    if (canvas) {
+                        const context = canvas.getContext('2d');
+                        context.clearRect(0, 0, canvas.width, canvas.height);
+                    }
+                    if (fallbackContainer) {
+                        fallbackContainer.innerHTML = '';
+                    }
+                    if (currentPdfRenderTask) {
+                        currentPdfRenderTask.cancel();
+                        currentPdfRenderTask = null;
+                    }
+                }
+            }, 300); // Wait for transition out
+        }
+
+        // Close when clicking empty space outside the modal box
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('cert-modal');
+            if (e.target === modal) {
+                closeCertModal();
+            }
         });
     </script>
 </body>

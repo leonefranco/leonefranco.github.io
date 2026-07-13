@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 23" fill="currentColor">
+  <!-- Symbol: 4 squares -->
+  <rect x="0" y="3" width="7.5" height="7.5" />
+  <rect x="8.5" y="3" width="7.5" height="7.5" />
+  <rect x="0" y="11.5" width="7.5" height="7.5" />
+  <rect x="8.5" y="11.5" width="7.5" height="7.5" />
+  
+  <!-- Text Wordmark: "Microsoft" -->
+  <text x="21" y="18" font-family="'Segoe UI', 'Segoe', -apple-system, sans-serif" font-size="15" font-weight="600" letter-spacing="-0.02em">Microsoft</text>
+</svg>

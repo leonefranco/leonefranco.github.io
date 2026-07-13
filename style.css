@@ -375,6 +375,7 @@ section {
 .project-card {
     flex: 0 0 75%;
     border: 1px solid var(--border-color);
+    border-radius: 6px;
     padding: 3rem;
     box-sizing: border-box;
     display: flex;
@@ -476,98 +477,136 @@ section {
 }
 
 /* Section 5: Certifications and Badges - Styled in Matrix-like Pattern */
-.certs-matrix {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
+/* ==========================================================================
+   Certifications Matrix Styles (4 reimagined options stack)
+   ========================================================================== */
+
+/* Reusable Certifications Demo Utilities */
+.certs-demo-option {
+    margin-top: 3.5rem;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 2rem;
 }
 
-.certs-matrix-cell {
-    padding: 2rem 1.75rem;
-    border: 1px solid var(--border-color);
-    background-color: var(--bg-secondary);
+.certs-demo-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+/* ==========================================
+   OPTION 3: Minimalist Horizontal Ledger Rows
+   ========================================== */
+.certs-ledger {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+
+.cert-row-ledger {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1.75rem;
-    border-radius: 4px;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    position: relative;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    gap: 2rem;
+    cursor: pointer;
 }
 
-.certs-matrix-cell:hover {
-    transform: translateY(-4px);
-    border-color: var(--heading-color);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.03);
+.certs-ledger .cert-row-ledger:first-child {
+    border-top: 1px solid var(--border-color);
 }
 
-.cert-badge-frame {
-    width: 72px;
-    height: 72px;
-    background-color: var(--bg-color);
-    border: 1px solid var(--border-color);
+.cert-row-ledger:hover {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    background-color: var(--bg-secondary);
+    border-bottom-color: var(--heading-color);
+}
+
+.cert-left-ledger {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cert-badge-box-ledger {
+    width: 56px; /* Unified square layout width */
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: border-color 0.3s ease;
-    border-radius: 2px;
 }
 
-.certs-matrix-cell:hover .cert-badge-frame {
-    border-color: var(--heading-color);
-}
-
-.cert-badge-img {
-    width: 80%;
-    height: 80%;
+.cert-badge-ledger {
+    width: 100%; /* Force all icons to have the exact same width */
+    height: auto;
+    max-height: 100%;
     object-fit: contain;
+    filter: brightness(0);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
 }
 
-.cert-info {
+.cert-row-ledger:hover .cert-badge-ledger {
+    opacity: 1;
+}
+
+.cert-info-ledger {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 0.4rem;
+    gap: 0.25rem;
 }
 
-@media (max-width: 580px) {
-    .certs-matrix {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-
-.cert-title {
-    font-size: 0.95rem;
+.cert-title-ledger {
+    font-size: 0.92rem;
     font-weight: 500;
     color: var(--heading-color);
-    line-height: 1.4;
-    margin: 0;
 }
 
-.cert-org-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.cert-status-dot {
-    width: 6px;
-    height: 6px;
-    background-color: #10b981;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.cert-org {
-    font-size: 0.72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+.cert-org-ledger {
+    font-size: 0.7rem;
+    font-weight: 400;
     color: var(--text-muted);
 }
+
+.cert-right-ledger {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.cert-status-tag-ledger {
+    font-family: monospace;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #10b981;
+    letter-spacing: 0.05em;
+}
+
+.cert-status-tag-ledger.expired {
+    color: #bdc016;
+}
+
+.cert-arrow-ledger {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.cert-row-ledger:hover .cert-arrow-ledger {
+    transform: translateX(4px);
+    color: var(--heading-color);
+}
+
+
 
 /* Section 6: Footer Layout & Constraints */
 footer {
@@ -595,14 +634,14 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1.3fr 1.7fr;
     gap: 2rem;
-    margin-bottom: 5.5rem;
+    margin-bottom: 2.0rem;
 }
 
 @media (max-width: 650px) {
     .footer-columns {
         grid-template-columns: 1fr;
         gap: 2.5rem;
-        margin-bottom: 4rem;
+        margin-bottom: 2.0rem;
     }
 }
 
@@ -768,6 +807,7 @@ footer {
     pointer-events: none;
     transform: translate3d(0, 0, 0); /* Force composition layer */
     backface-visibility: hidden;
+    margin-top: 1.5rem;
 }
 
 .footer-signature-text {
@@ -783,4 +823,128 @@ footer {
     backface-visibility: hidden;
     will-change: transform;
     display: block;
+}
+
+/* ==========================================================================
+   Certifications Details Modal Overlay
+   ========================================================================== */
+.cert-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 13, 13, 0.7); /* high-contrast dark overlay */
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cert-modal-overlay.is-active {
+    display: flex;
+    opacity: 1;
+}
+
+.cert-modal-box {
+    position: relative;
+    width: auto;
+    height: 80vh;
+    max-width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cert-modal-overlay.is-active .cert-modal-box {
+    transform: translateY(0);
+}
+
+.cert-modal-content {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    background-color: #fdfdfb;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cert-modal-canvas {
+    height: 100%;
+    width: auto;
+    max-height: 80vh;
+    display: block;
+}
+
+.cert-modal-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+    z-index: 1510;
+}
+
+.cert-modal-close:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .cert-modal-box {
+        width: 95vw;
+        height: auto;
+        max-height: 75vh;
+    }
+    .cert-modal-canvas {
+        width: 100%;
+        height: auto;
+        max-height: 75vh;
+    }
+    .cert-modal-close {
+        top: 1rem;
+        right: 1rem;
+        color: #111111;
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+}
+
+/* Footer Hosting & Build Credits */
+.footer-credits-container {
+    margin-top: 0;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-credits-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--footer-text-secondary);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+    margin: 0 auto;
+    text-align: center;
 }
