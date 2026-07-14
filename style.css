@@ -79,6 +79,7 @@ main {
 .cv-text {
     display: inline-flex;
     align-items: center;
+    line-height: 1;
     background: none;
     border: none;
     font-family: 'Inter', sans-serif;
@@ -91,14 +92,20 @@ main {
     transition: color 0.2s ease;
 }
 
-.header-icons{
-    display: flex;
+.header-icons {
+    display: inline-flex;
     align-items: center;
-    width: 1.65rem;
+    justify-content: center;
     cursor: pointer;
     padding: 0 0.15rem;
     transition: color 0.2s ease;
     color: var(--text-muted);
+}
+
+.header-icons svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    display: block;
 }
 
 .header-icons:hover {
@@ -112,6 +119,9 @@ main {
 }
 
 .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
     background: none;
     border: none;
     font-family: 'Inter', sans-serif;
@@ -135,6 +145,9 @@ main {
 }
 
 .lang-divider {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
     color: #dddddd;
     font-size: 0.65rem;
     pointer-events: none;
@@ -196,9 +209,20 @@ section {
 
 /* Section 2: Live Learning Log */
 .log-container {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
+    gap: 0.5rem;
+}
+
+.log-container::before {
+    content: '';
+    position: absolute;
+    top: 0.9rem;
+    bottom: 0.9rem;
+    left: 97px;
+    width: 1px;
+    background-color: var(--border-color);
 }
 
 .log-entry {
@@ -206,21 +230,160 @@ section {
     grid-template-columns: 85px 1fr;
     gap: 1.5rem;
     align-items: baseline;
+    padding: 0.5rem 0.8rem;
+    margin: 0 -0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
 }
 
-@media (max-width: 480px) {
-    .log-entry {
-        grid-template-columns: 1fr;
-        gap: 0.25rem;
-    }
+.log-container:hover .log-entry {
+    opacity: 0.75;
+}
+
+.log-container .log-entry:hover {
+    opacity: 1;
+    background-color: var(--bg-secondary);
+}
+
+.log-container:hover .log-entry:hover .log-stamp {
+    color: var(--heading-color);
+}
+
+.log-container:hover .log-entry:hover .log-stamp::after {
+    background-color: var(--heading-color);
+}
+
+.log-container:hover .log-entry:first-child:not(:hover) .log-stamp {
+    color: var(--text-muted);
+}
+
+.log-container:hover .log-entry:first-child:not(:hover) .log-stamp::after {
+    background-color: var(--text-muted);
 }
 
 .log-stamp {
+    display: inline-block;
+    position: relative;
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--heading-color);
+    color: var(--text-muted);
     letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.log-stamp::after {
+    content: '';
+    position: absolute;
+    left: 97px;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--bg-color);
+    z-index: 1;
+    transition: background-color 0.2s ease;
+}
+
+.log-entry:first-child .log-stamp {
+    color: var(--heading-color);
+}
+
+.log-entry:first-child .log-stamp::after {
+    background-color: var(--heading-color);
+}
+
+.log-entry {
+    margin-bottom: 0.5rem;
+}
+
+.log-entry:last-child {
+    margin-bottom: 0;
+}
+
+/* By default, Entry 3 has no bottom margin when collapsed */
+.log-container:not(.is-open) .log-entry:nth-child(3) {
+    margin-bottom: 0;
+}
+
+/* Expandable Drawer Styling */
+.log-extra-drawer {
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.log-extra-drawer.is-open {
+    max-height: 1200px;
+    opacity: 1;
+}
+
+/* Drawer open margins */
+.log-container.is-open .log-entry:nth-child(3) {
+    margin-bottom: 0.5rem;
+}
+
+/* Interactive Log Toggle Button */
+.log-toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.log-toggle-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--heading-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s ease;
+    background-color: var(--bg-color);
+}
+
+.log-toggle-btn:hover {
+    background-color: var(--heading-color);
+    color: var(--bg-color);
+    border-color: var(--heading-color);
+}
+
+.log-toggle-btn .toggle-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 480px) {
+    .log-container {
+        padding-left: 20px;
+    }
+    .log-container::before {
+        left: 6px;
+        top: 0.8rem;
+        bottom: 0.8rem;
+    }
+    .log-entry {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+        padding: 0.4rem 0.6rem;
+        margin: 0 -0.6rem;
+    }
+    .log-stamp::after {
+        left: 6px;
+    }
 }
 
 .log-detail {
@@ -632,7 +795,11 @@ section {
 }
 
 .cert-status-tag-ledger.expired {
-    color: #bdc016;
+    color: #b5b82e;
+}
+
+.cert-status-tag-ledger.expected {
+    color: #cc3838;
 }
 
 .cert-arrow-ledger {
@@ -741,10 +908,28 @@ footer {
 }
 
 .status-dot {
-    width: 5px;
-    height: 5px;
-    background-color: #ffffff;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
+    display: inline-block;
+}
+
+.pulse-green {
+    background-color: #00ff66;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+    animation: statusPulse 2s infinite ease-in-out;
+}
+
+.pulse-blue {
+    background-color: #0099ff;
+    box-shadow: 0 0 8px rgba(0, 153, 255, 0.6);
+    animation: statusPulse 2s infinite ease-in-out 0.5s;
+}
+
+@keyframes statusPulse {
+    0% { opacity: 0.3; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.15); }
+    100% { opacity: 0.3; transform: scale(0.9); }
 }
 
 .footer-copyright {
@@ -852,14 +1037,14 @@ footer {
 
 .footer-signature-text {
     font-family: 'Bodoni Moda SC', Georgia, serif; /* Final font choice */
-    font-size: 13vw;
+    font-size: 12em;
     font-weight: 700;
     color: var(--footer-text);
     line-height: 0.85;
     white-space: nowrap;
     text-align: center;
     letter-spacing: 0.01em;
-    transform: translateY(0.75vw) translateZ(0); /* Pushes signature down & isolates layer rendering */
+    transform: translateY(0.65vw) translateZ(0); /* Pushes signature down & isolates layer rendering */
     backface-visibility: hidden;
     will-change: transform;
     display: block;
@@ -979,12 +1164,26 @@ footer {
 }
 
 .footer-credits-text {
+    display: block;
     font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 300;
     color: var(--footer-text-secondary);
     letter-spacing: 0.04em;
     line-height: 1.6;
-    margin: 0 auto;
+    margin: 0.3rem auto;
     text-align: center;
+}
+
+.credits-logo-inline {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    gap: 0.25rem;
+}
+
+.credits-svg{
+    filter: grayscale(100%);
+    fill: currentColor;
+    height: 0.8rem;
 }
