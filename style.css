@@ -795,11 +795,11 @@ section {
 }
 
 .cert-status-tag-ledger.expired {
-    color: #b5b82e;
+    color: #a3e635; /* Vibrant lime-yellow harmonized with green */
 }
 
 .cert-status-tag-ledger.expected {
-    color: #cc3838;
+    color: #ef4444; /* Clean vibrant red */
 }
 
 .cert-arrow-ledger {
